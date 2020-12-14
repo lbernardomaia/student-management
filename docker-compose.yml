@@ -3,6 +3,7 @@ version: '3.8'
 services:
 
   student-frontend:
+    image: student-frontend:v1
     container_name: student-frontend
     build:
         context: .
@@ -11,6 +12,7 @@ services:
         - 3000:3000
 
   student-service:
+    image: student-service:v1
     container_name: student-service
     build:
       context: .
@@ -18,7 +20,7 @@ services:
     depends_on:
       - student-database
     environment:
-        - "DATABASE_URL=jdbc:mysql://student-database/student_management?useSSL=false"
+        - "DATABASE_URL=jdbc:mysql://student-database/student_management?allowPublicKeyRetrieval=true&useSSL=false"
         - "DATABASE_USER=root"
         - "DATABASE_PASSWORD=root"
     ports:
@@ -26,7 +28,6 @@ services:
 
   student-database:
     container_name: student-database
-
     image: mysql:8.0
     ports:
       - "3306:3306"

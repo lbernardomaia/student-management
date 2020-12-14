@@ -14,15 +14,10 @@ class CreateStudentComponent extends Component {
             quantityOfRightQuestions: '',
             grade: '',
         }
-        this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
-        this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
-        this.saveOrUpdateStudent = this.saveOrUpdateStudent.bind(this);
     }
 
     componentDidMount(){
-        if(this.state.id === '_add'){
-            return
-        }else{
+        if(this.state.id !== '_add'){
             StudentService.getStudentById(this.state.id).then( (res) =>{
                 let student = res.data;
                 this.setState({
@@ -73,8 +68,7 @@ class CreateStudentComponent extends Component {
     }
 
     changeQuantityOfQuestionsHandler = (event) => {
-        if(this.isNumber(event))
-        {
+        if(this.isNumber(event)){
             this.setState({quantityOfQuestions: event.target.value});
         }
     }
