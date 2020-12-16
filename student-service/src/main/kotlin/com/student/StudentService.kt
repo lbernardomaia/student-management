@@ -1,5 +1,6 @@
 package com.student
 
+import mu.KotlinLogging
 import org.springframework.stereotype.Service
 
 @Service
@@ -18,8 +19,7 @@ class StudentService (
                 .orElseThrow { throwResourceNotFoundException(id) }
 
     fun update(id : Long, studentDetails: Student): Student {
-        val student = studentRepository.findById(id)
-                .orElseThrow { throwResourceNotFoundException(id) }
+        val student = findById(id)
 
         return student.apply {
             firstName = studentDetails.firstName
@@ -34,8 +34,7 @@ class StudentService (
     }
 
     fun delete(id: Long) {
-        val student = studentRepository.findById(id)
-                .orElseThrow { throwResourceNotFoundException(id) }
+        val student = findById(id)
 
         studentRepository.delete(student)
     }
