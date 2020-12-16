@@ -2,14 +2,15 @@
 
 The project has CRUD developed using React and Bootstrap, and a Rest Service developed in Kotlin.
 
-###React Frontend
+
+**React Frontend**
 
 URL:
 ```
 http://localhost:3000/
 ```
 
-###Student Service
+**Student Service**
 
 URL:
 ```
@@ -21,7 +22,7 @@ Swagger UI URL:
 http://localhost:8080/swagger-ui.html
 ```
 
-###Usage
+**Usage**
 
 To start all services.
 
