@@ -16,6 +16,11 @@ URL:
 http://localhost:8080/student-service/api/v1/students
 ```
 
+Swagger UI URL:
+```
+http://localhost:8080/swagger-ui.html
+```
+
 ###Usage
 
 To start all services.
